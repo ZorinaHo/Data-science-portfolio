@@ -27,21 +27,39 @@ My interests include predictive modeling, exploratory data analysis, data visual
 
 ### House Price Prediction: Model Performance and Residual Diagnostics
 
-**Research question:** How accurately can basic housing attributes predict house prices, and what can held-out prediction errors reveal about model limitations? Does a more complex polynomial ridge model generalize better than linear regression?
+**Why compare these models?** More complex models can capture nonlinear relationships, but added flexibility can also make them fit patterns that do not hold for new observations. Comparing a simple baseline with a polynomial model shows why predictive performance must be judged on unseen data—not training fit alone.
 
-**Project status:**  Ongoing — reproducible demonstration with synthetic housing data.
+**Research question:** How accurately can basic housing attributes predict house prices, and what can held-out prediction errors reveal about model limitations? Does a more complex polynomial Ridge model generalize better than linear regression?
 
-![Actual versus predicted housing prices for two regression models](images/actual_vs_predicted.png)
+**Project status:** Ongoing — reproducible demonstration with **synthetic housing data**.
 
-*Figure 1. Actual vs. predicted prices on the held-out test set, using synthetic observations.*
+### Key results at a glance
 
-The analysis compares a linear regression baseline with a degree-3 polynomial ridge regression model. On a held-out synthetic test set, linear regression achieved **R² = 0.885** and **MAE ≈ $71,992**, while polynomial ridge achieved **R² = 0.870** and **MAE ≈ $75,581**. The more complex model had higher training R² but lower test R², illustrating why training fit alone can be misleading.
+| Model | Training R² | Test R² ↑ | Test MAE ↓ |
+| --- | ---: | ---: | ---: |
+| Linear regression (baseline) | 0.881 | **0.885** | **$71,992** |
+| Polynomial Ridge (degree 3) | **0.897** | 0.870 | $75,581 |
 
-![Residuals versus predicted housing prices for two regression models](images/residual_diagnostics.png)
+*Metrics are from one train/test split of 600 synthetic homes. MAE is the average absolute prediction error in US dollars; higher test R² and lower test MAE indicate better performance.*
 
-*Figure 2. Residual diagnostics help reveal the patterns and variation in prediction errors.*
+**Main finding:** Although the polynomial Ridge model fits the training data more closely, the simpler linear regression performs better on the held-out test set. In this demonstration, **greater complexity does not translate into better generalization**. This is consistent with an overfitting concern, although the results of one split do not establish how every future dataset would behave.
 
-**Key limitation:** This project uses artificially generated data (600 synthetic homes), not actual housing transactions. Findings should not be generalized to a real-world housing market. Important real-world drivers such as neighborhood, school quality, and market timing are absent.
+### Visual evidence
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.25rem;align-items:start;margin:1rem 0 1.5rem;">
+  <div style="min-width:0;border:1px solid #d6e0e8;border-radius:12px;padding:12px;background:#f8fafc;">
+    <img src="images/actual_vs_predicted.png" alt="Actual versus predicted house prices for linear regression and polynomial Ridge models on synthetic test data" style="display:block;width:100%;height:auto;border-radius:6px;" />
+    <p style="font-size:0.92rem;margin:0.8rem 0 0;"><strong>Figure 1 — Actual vs. predicted.</strong> Compare each model's predicted prices against the observed synthetic prices. Greater distance from the ideal prediction line means larger prediction errors.</p>
+  </div>
+  <div style="min-width:0;border:1px solid #d6e0e8;border-radius:12px;padding:12px;background:#f8fafc;">
+    <img src="images/residual_diagnostics.png" alt="Residuals against predicted prices for linear regression and polynomial Ridge models on synthetic test data" style="display:block;width:100%;height:auto;border-radius:6px;" />
+    <p style="font-size:0.92rem;margin:0.8rem 0 0;"><strong>Figure 2 — Residual diagnostics.</strong> Residuals reveal where prediction errors vary with fitted prices, helping assess whether a model may be less reliable for some price ranges.</p>
+  </div>
+</div>
+
+### Limitations and next steps
+
+**Key limitation:** This project uses artificially generated data (**600 synthetic homes**), not actual property transactions. The findings **cannot be generalized to real housing markets**. Important real-world factors such as geographic location, school quality, and changes in market conditions are not represented.
 
 **[View the project repository on GitHub](https://github.com/ZorinaHo/Data-science-project)**
 
