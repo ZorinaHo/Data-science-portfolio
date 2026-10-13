@@ -43,7 +43,7 @@ The analysis compares a linear regression baseline with a degree-3 polynomial ri
 
 **Key limitation:** This project uses artificially generated data (600 synthetic homes), not actual housing transactions. Findings should not be generalized to a real-world housing market. Important real-world drivers such as neighborhood, school quality, and market timing are absent.
 
-**[View the project repository on GitHub](https://zorinaho.github.io/Data-science-portfolio/)**
+**[View the project repository on GitHub](https://github.com/ZorinaHo/Data-science-project)**
 
 ## What's Next
 
