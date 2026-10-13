@@ -6,7 +6,7 @@ Personal portfolio website showcasing data science projects, technical skills, v
 
 Once GitHub Pages is enabled, this site will appear at:
 
-`https://ZorinaHo.github.io/data-science-portfolio/`
+`https://zorinaho.github.io/Data-science-portfolio/`
 
 ## Featured project
 
