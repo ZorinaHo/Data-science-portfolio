@@ -1,4 +1,4 @@
-# Ashley — Data Science Portfolio
+# He Zhuoyan — Data Science Portfolio
 
 Personal portfolio website showcasing data science projects, technical skills, visualizations, key findings, and limitations.
 
